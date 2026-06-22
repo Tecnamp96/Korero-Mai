@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+::-webkit-scrollbar{width:0;height:0}
+.kmscroll{scrollbar-width:none}
+@keyframes kmspin{to{transform:rotate(360deg)}}
+</style>
+</helmet>
+<div style="width:384px;height:812px;border-radius:48px;background:#0a0c0b;padding:10px;box-shadow:0 34px 70px -22px rgba(4,52,44,.5),0 10px 28px -10px rgba(0,0,0,.35);flex:none;position:relative">
+  <div style="width:100%;height:100%;border-radius:40px;overflow:hidden;background:#f2f9f6;position:relative;display:flex;flex-direction:column;font-family:'Hanken Grotesk',sans-serif;-webkit-font-smoothing:antialiased">
+
+    <div style="position:absolute;top:13px;left:50%;transform:translateX(-50%);width:104px;height:27px;background:#000;border-radius:16px;z-index:60"></div>
+    <div style="position:absolute;top:0;left:0;right:0;height:44px;display:flex;align-items:center;justify-content:space-between;padding:14px 26px 0;color:#fff;z-index:55;pointer-events:none">
+      <span style="font-size:13px;font-weight:700;letter-spacing:.2px">9:41</span>
+      <span style="display:flex;align-items:center;gap:5px">
+        <svg width="17" height="12" viewBox="0 0 17 12" fill="currentColor"><rect x="0" y="7" width="3" height="5" rx="1"/><rect x="4.5" y="4.5" width="3" height="7.5" rx="1"/><rect x="9" y="2" width="3" height="10" rx="1"/><rect x="13.5" y="0" width="3" height="12" rx="1"/></svg>
+        <svg width="22" height="12" viewBox="0 0 24 12" fill="none"><rect x="1" y="1" width="19" height="10" rx="3" stroke="currentColor" stroke-width="1.2" opacity="0.5"/><rect x="2.5" y="2.5" width="14" height="7" rx="1.5" fill="currentColor"/><rect x="21" y="4" width="2" height="4" rx="1" fill="currentColor" opacity="0.6"/></svg>
+      </span>
+    </div>
+
+    <!-- ===================== ONBOARDING / VERIFY ===================== -->
+    <sc-if value="{{ isVerify }}" hint-placeholder-val="{{ true }}">
+    <div style="flex:1;display:flex;flex-direction:column;min-height:0;background:#04342C;color:#fff">
+
+      <sc-if value="{{ vIntro }}" hint-placeholder-val="{{ true }}">
+      <div class="kmscroll" style="flex:1;overflow-y:auto;padding:64px 26px 26px;display:flex;flex-direction:column">
+        <div style="width:54px;height:54px;border-radius:15px;background:#0F6E56;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:30px;color:#dffaef;margin-bottom:26px">K</div>
+        <div style="font-size:11px;letter-spacing:2.5px;font-weight:700;color:#5DCAA5;margin-bottom:12px">KŌRERO MAI</div>
+        <div style="font-size:30px;font-weight:800;letter-spacing:-.6px;line-height:1.12;margin-bottom:12px">Nāu te reo ki te Whare Pāremata</div>
+        <div style="font-size:15px;color:#bfe6d8;line-height:1.55;margin-bottom:28px">Your voice, into Parliament. Verify once against the electoral roll, then signal how your MPs should vote — before they do.</div>
+
+        <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:28px">
+          <div style="display:flex;gap:13px;align-items:flex-start">
+            <div style="width:34px;height:34px;border-radius:9px;background:rgba(93,202,165,.14);border:1px solid rgba(93,202,165,.3);flex:none;display:flex;align-items:center;justify-content:center">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5DCAA5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12.5l2.5 2.5L16 9"/><circle cx="12" cy="12" r="9"/></svg>
+            </div>
+            <div><div style="font-size:14.5px;font-weight:700">Tūturu · One person, one signal</div><div style="font-size:12.5px;color:#9fd4c1;line-height:1.4">Matched to the electoral roll so every signal is a real, unique citizen.</div></div>
+          </div>
+          <div style="display:flex;gap:13px;align-items:flex-start">
+            <div style="width:34px;height:34px;border-radius:9px;background:rgba(93,202,165,.14);border:1px solid rgba(93,202,165,.3);flex:none;display:flex;align-items:center;justify-content:center">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5DCAA5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+            </div>
+            <div><div style="font-size:14.5px;font-weight:700">Muna · Anonymous after matching</div><div style="font-size:12.5px;color:#9fd4c1;line-height:1.4">Your identity confirms eligibility, then is separated from how you signal.</div></div>
+          </div>
+          <div style="display:flex;gap:13px;align-items:flex-start">
+            <div style="width:34px;height:34px;border-radius:9px;background:rgba(93,202,165,.14);border:1px solid rgba(93,202,165,.3);flex:none;display:flex;align-items:center;justify-content:center">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5DCAA5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            </div>
+            <div><div style="font-size:14.5px;font-weight:700">Poto · Transitional by design</div><div style="font-size:12.5px;color:#9fd4c1;line-height:1.4">Open to every NZ citizen until the Citizens' Senate is established.</div></div>
+          </div>
+        </div>
+
+        <div style="flex:1"></div>
+        <button onClick="{{ startVerify }}" style="width:100%;background:#5DCAA5;color:#04342C;border:none;border-radius:14px;padding:16px;font-family:inherit;font-size:15.5px;font-weight:800;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:9px;margin-bottom:12px">
+          Whakaūngia tō tuakiri · Verify with RealMe
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+        <div style="font-size:11.5px;color:#7fc4ac;text-align:center;line-height:1.45">Verification uses the government RealMe service.<br>Kōrero Mai never sees your password.</div>
+      </div>
+      </sc-if>
+
+      <sc-if value="{{ vChecking }}" hint-placeholder-val="{{ true }}">
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 30px;text-align:center">
+        <div style="width:74px;height:74px;border-radius:50%;border:4px solid rgba(93,202,165,.22);border-top-color:#5DCAA5;animation:kmspin 0.9s linear infinite;margin-bottom:26px"></div>
+        <div style="font-size:18px;font-weight:800;margin-bottom:8px">Te taurite ki te rārangi pōti</div>
+        <div style="font-size:14px;color:#bfe6d8;line-height:1.5;max-width:240px">Matching your RealMe identity to the electoral roll…</div>
+      </div>
+      </sc-if>
+
+      <sc-if value="{{ vDone }}" hint-placeholder-val="{{ true }}">
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 30px;text-align:center">
+        <div style="width:84px;height:84px;border-radius:50%;background:#0F6E56;display:flex;align-items:center;justify-content:center;margin-bottom:24px;box-shadow:0 0 0 10px rgba(15,110,86,.16)">
+          <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg>
+        </div>
+        <div style="font-size:22px;font-weight:800;margin-bottom:8px">Kua whakaūngia · Verified</div>
+        <div style="font-size:14px;color:#bfe6d8;line-height:1.5;max-width:250px;margin-bottom:30px">You're on the roll in <strong style="color:#fff">Te Tai Tonga</strong>. Welcome, Anahera.</div>
+        <button onClick="{{ finishVerify }}" style="width:100%;max-width:300px;background:#5DCAA5;color:#04342C;border:none;border-radius:14px;padding:15px;font-family:inherit;font-size:15px;font-weight:800;cursor:pointer">Tomo atu · Enter Kōrero Mai</button>
+      </div>
+      </sc-if>
+
+    </div>
+    </sc-if>
+
+    <!-- ===================== HOME ===================== -->
+    <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+    <div style="flex:1;display:flex;flex-direction:column;min-height:0">
+      <div style="background:#04342C;color:#fff;padding:50px 22px 22px">
+        <div style="font-size:11px;letter-spacing:2.5px;font-weight:700;color:#5DCAA5">KŌRERO MAI</div>
+        <div style="font-size:26px;font-weight:800;margin-top:10px;letter-spacing:-.4px">Kia ora, Anahera</div>
+        <div style="display:flex;gap:10px;margin-top:16px">
+          <div style="flex:1;background:rgba(93,202,165,.12);border:1px solid rgba(93,202,165,.28);border-radius:12px;padding:11px 13px">
+            <div style="font-size:21px;font-weight:800">4</div>
+            <div style="font-size:11.5px;color:#bfe6d8;line-height:1.3">pire e tuwhera ana<br>bills open</div>
+          </div>
+          <div style="flex:1;background:rgba(93,202,165,.12);border:1px solid rgba(93,202,165,.28);border-radius:12px;padding:11px 13px">
+            <div style="font-size:21px;font-weight:800">3 rā</div>
+            <div style="font-size:11.5px;color:#bfe6d8;line-height:1.3">ki te pōti tata<br>to next vote</div>
+          </div>
+        </div>
+      </div>
+      <div class="kmscroll" style="flex:1;overflow-y:auto;padding:16px 16px 18px;background:#f2f9f6">
+        <div style="font-size:12px;font-weight:700;color:#5b6f69;letter-spacing:.4px;margin:2px 2px 12px">NGĀ PIRE · BILLS BEFORE PARLIAMENT</div>
+        <sc-for list="{{ bills }}" as="b" hint-placeholder-count="4">
+          <div onClick="{{ b.open }}" style="background:#fff;border:1px solid #d9ebe4;border-radius:16px;padding:15px 15px 14px;margin-bottom:11px;cursor:pointer;box-shadow:0 1px 2px rgba(4,52,44,.04)">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:9px">
+              <span style="font-size:11px;font-weight:700;padding:4px 9px;border-radius:20px;background:{{ b.tagBg }};color:{{ b.tagFg }}">{{ b.dayLabel }}</span>
+              <span style="font-size:11.5px;color:#8a9b95;font-weight:600">{{ b.readLabel }}</span>
+            </div>
+            <div style="font-size:16px;font-weight:700;color:#04342C;letter-spacing:-.2px;line-height:1.25">{{ b.title }}</div>
+            <div style="font-size:13px;color:#566b65;line-height:1.5;margin-top:5px">{{ b.desc }}</div>
+            <div style="margin-top:12px;padding-top:11px;border-top:1px solid #eef5f2">
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px">
+                <span style="font-size:11.5px;font-weight:600;color:#0F6E56">{{ b.engageLabel }}</span>
+                <span style="font-size:11.5px;color:#8a9b95;font-weight:600">{{ b.signalsLabel }}</span>
+              </div>
+              <div style="height:6px;background:#e7f1ed;border-radius:6px;overflow:hidden">
+                <div style="height:100%;width:{{ b.engageW }};background:#0F6E56;border-radius:6px"></div>
+              </div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+    </sc-if>
+
+    <!-- ===================== BILL DETAIL ===================== -->
+    <sc-if value="{{ isBill }}" hint-placeholder-val="{{ true }}">
+    <div style="flex:1;display:flex;flex-direction:column;min-height:0">
+      <div style="background:#04342C;color:#fff;padding:48px 22px 16px">
+        <button onClick="{{ goHome }}" style="display:flex;align-items:center;gap:5px;background:none;border:none;color:#5DCAA5;font-family:inherit;font-size:13px;font-weight:600;cursor:pointer;padding:0;margin-bottom:12px">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>
+          Ngā pire · Bills
+        </button>
+        <div style="font-size:19px;font-weight:800;letter-spacing:-.3px;line-height:1.25">{{ billTitle }}</div>
+        <div style="display:flex;gap:14px;margin-top:8px;font-size:12px;color:#bfe6d8;font-weight:600">
+          <span>{{ billRead }}</span><span>{{ billVote }}</span>
+        </div>
+        <div style="margin-top:15px">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px">
+            <span style="font-size:11.5px;font-weight:700;color:#9fe0c9;letter-spacing:.3px">KUA PĀNUIHIA · BRIEF READ</span>
+            <span style="font-size:12.5px;font-weight:800;color:#fff">{{ readW }}</span>
+          </div>
+          <div style="height:7px;background:rgba(255,255,255,.14);border-radius:8px;overflow:hidden">
+            <div style="height:100%;width:{{ readW }};background:#5DCAA5;border-radius:8px;transition:width .15s ease"></div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex;background:#fff;border-bottom:1px solid #e3efea;padding:0 8px">
+        <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="4">
+          <button onClick="{{ t.setTab }}" style="flex:1;background:none;border:none;border-bottom:{{ t.bb }};padding:11px 2px 9px;cursor:pointer;font-family:inherit;display:flex;flex-direction:column;align-items:center;gap:1px;color:{{ t.color }};font-weight:{{ t.weight }}">
+            <span style="font-size:12.5px">{{ t.te }}</span>
+            <span style="font-size:9.5px;opacity:.7;font-weight:600">{{ t.en }}</span>
+          </button>
+        </sc-for>
+      </div>
+
+      <div style="flex:1;min-height:0;position:relative;background:#f2f9f6">
+        <sc-if value="{{ isSummary }}" hint-placeholder-val="{{ true }}">
+          <div class="kmscroll" onScroll="{{ onScroll }}" style="height:100%;overflow-y:auto;padding:16px 18px 22px">
+            <div style="font-size:11px;font-weight:700;color:#5b6f69;letter-spacing:.4px;margin-bottom:4px">HE WHAKARĀPOPOTO MOTUHAKE · INDEPENDENT PLAIN-LANGUAGE SUMMARY</div>
+            <div style="font-size:11.5px;color:#8a9b95;margin-bottom:14px">Parliamentary Library — not written by any party</div>
+            <sc-for list="{{ summary }}" as="p" hint-placeholder-count="4">
+              <p style="font-size:14.5px;line-height:1.62;color:#36473f;margin:0 0 13px">{{ p }}</p>
+            </sc-for>
+            <div style="background:#fff;border:1px solid #d9ebe4;border-radius:13px;padding:13px 15px;margin-top:6px">
+              <div style="font-size:11px;font-weight:700;color:#5b6f69;letter-spacing:.3px;margin-bottom:5px">TŪNGA O TE KAITONO · PROPOSER'S POSITION</div>
+              <div style="font-size:13.5px;color:#36473f;line-height:1.5">{{ proposer }} — <strong style="color:#0F6E56">{{ proposerPos }}</strong></div>
+            </div>
+            <div style="text-align:center;font-size:12px;color:#9aaca6;margin-top:18px">Kua tae koe ki te mutunga · You've reached the end of the brief</div>
+          </div>
+        </sc-if>
+        <sc-if value="{{ isFor }}" hint-placeholder-val="{{ true }}">
+          <div class="kmscroll" style="height:100%;overflow-y:auto;padding:16px 18px 22px">
+            <div style="font-size:11px;font-weight:700;color:#0F6E56;letter-spacing:.4px;margin-bottom:12px">NGĀ TĀUTU MŌ · THE CASE FOR</div>
+            <sc-for list="{{ forText }}" as="p" hint-placeholder-count="2">
+              <p style="font-size:14.5px;line-height:1.62;color:#36473f;margin:0 0 13px">{{ p }}</p>
+            </sc-for>
+          </div>
+        </sc-if>
+        <sc-if value="{{ isAgainst }}" hint-placeholder-val="{{ true }}">
+          <div class="kmscroll" style="height:100%;overflow-y:auto;padding:16px 18px 22px">
+            <div style="font-size:11px;font-weight:700;color:#A32D2D;letter-spacing:.4px;margin-bottom:12px">NGĀ TĀUTU WHAKAHĒ · THE CASE AGAINST</div>
+            <sc-for list="{{ againstText }}" as="p" hint-placeholder-count="2">
+              <p style="font-size:14.5px;line-height:1.62;color:#36473f;margin:0 0 13px">{{ p }}</p>
+            </sc-for>
+          </div>
+        </sc-if>
+        <sc-if value="{{ isFull }}" hint-placeholder-val="{{ true }}">
+          <div class="kmscroll" style="height:100%;overflow-y:auto;padding:16px 18px 22px">
+            <a href="#" style="display:flex;align-items:center;justify-content:space-between;text-decoration:none;background:#fff;border:1px solid #d9ebe4;border-radius:13px;padding:15px 16px">
+              <span><span style="display:block;font-size:14px;font-weight:700;color:#04342C">Te pire katoa · Full bill text</span><span style="display:block;font-size:12px;color:#8a9b95;margin-top:2px">Opens on legislation.govt.nz</span></span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+            </a>
+            <p style="font-size:13px;line-height:1.6;color:#566b65;margin-top:14px">The complete enacted wording, every clause and amendment, exactly as it will be put to the House. The summary above is a reading aid; this is the legal text.</p>
+          </div>
+        </sc-if>
+      </div>
+
+      <div style="padding:12px 16px 14px;background:#fff;border-top:1px solid #e3efea">
+        <sc-if value="{{ unlocked }}" hint-placeholder-val="{{ true }}">
+          <button onClick="{{ goSignal }}" style="width:100%;background:#0F6E56;color:#fff;border:none;border-radius:14px;padding:15px;font-family:inherit;font-size:15px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 6px 16px -6px rgba(15,110,86,.6)">
+            Kōrero mai · Signal your view
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </sc-if>
+        <sc-if value="{{ locked }}" hint-placeholder-val="{{ true }}">
+          <div style="width:100%;background:#eef4f1;border:1px dashed #c2d6cf;border-radius:14px;padding:13px 15px;display:flex;align-items:center;gap:11px">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7d918b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+            <div style="font-size:12.5px;line-height:1.4;color:#5b6f69"><strong style="color:#36473f">Pānuitia te whakarāpopoto kia tuwhera</strong><br>Read the brief to unlock signalling</div>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+    </sc-if>
+
+    <!-- ===================== SIGNAL ===================== -->
+    <sc-if value="{{ isSignal }}" hint-placeholder-val="{{ true }}">
+    <div style="flex:1;display:flex;flex-direction:column;min-height:0">
+      <div style="background:#04342C;color:#fff;padding:48px 22px 18px">
+        <button onClick="{{ goBill }}" style="display:flex;align-items:center;gap:5px;background:none;border:none;color:#5DCAA5;font-family:inherit;font-size:13px;font-weight:600;cursor:pointer;padding:0;margin-bottom:12px">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>
+          Hoki ki te kupu roa · Back to brief
+        </button>
+        <div style="font-size:22px;font-weight:800;letter-spacing:-.3px">Tō kōrero</div>
+        <div style="font-size:13px;color:#bfe6d8;margin-top:2px;font-weight:600">Your signal · {{ billTitle }}</div>
+      </div>
+      <div class="kmscroll" style="flex:1;overflow-y:auto;padding:18px 16px 16px;background:#f2f9f6">
+        <div style="font-size:14px;color:#36473f;line-height:1.5;margin-bottom:16px">Me pēhea ngā mema o INZ e pōti ai mō tēnei pire?<br><span style="color:#8a9b95;font-size:13px">How should INZ MPs vote on this bill?</span></div>
+
+        <div onClick="{{ sigT.choose }}" style="background:{{ sigT.cardBg }};border:{{ sigT.cardBorder }};border-radius:18px;padding:17px 16px;margin-bottom:12px;cursor:pointer;display:flex;align-items:center;gap:14px">
+          <div style="width:48px;height:48px;border-radius:50%;background:#0F6E56;flex:none;display:flex;align-items:center;justify-content:center">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg>
+          </div>
+          <div style="flex:1"><div style="font-size:19px;font-weight:800;color:#0a4a3a">Tautoko</div><div style="font-size:13px;color:#4e635c;font-weight:500">Support — vote yes</div></div>
+          <sc-if value="{{ sigT.selected }}" hint-placeholder-val="{{ true }}"><svg width="22" height="22" viewBox="0 0 24 24" fill="#0F6E56"><circle cx="12" cy="12" r="11"/><path d="M7 12.5l3.2 3.2L17 9" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></sc-if>
+        </div>
+
+        <div onClick="{{ sigW.choose }}" style="background:{{ sigW.cardBg }};border:{{ sigW.cardBorder }};border-radius:18px;padding:17px 16px;margin-bottom:12px;cursor:pointer;display:flex;align-items:center;gap:14px">
+          <div style="width:48px;height:48px;border-radius:50%;background:#A32D2D;flex:none;display:flex;align-items:center;justify-content:center">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+          </div>
+          <div style="flex:1"><div style="font-size:19px;font-weight:800;color:#7c2222">Whakahē</div><div style="font-size:13px;color:#7a5050;font-weight:500">Oppose — vote no</div></div>
+          <sc-if value="{{ sigW.selected }}" hint-placeholder-val="{{ true }}"><svg width="22" height="22" viewBox="0 0 24 24" fill="#A32D2D"><circle cx="12" cy="12" r="11"/><path d="M7 12.5l3.2 3.2L17 9" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></sc-if>
+        </div>
+
+        <div onClick="{{ sigH.choose }}" style="background:{{ sigH.cardBg }};border:{{ sigH.cardBorder }};border-radius:18px;padding:17px 16px;cursor:pointer;display:flex;align-items:center;gap:14px">
+          <div style="width:48px;height:48px;border-radius:50%;background:#185FA5;flex:none;display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:800;color:#fff">?</div>
+          <div style="flex:1"><div style="font-size:18px;font-weight:800;color:#13477c;line-height:1.1">Hiahia mōhio anō</div><div style="font-size:13px;color:#4d6480;font-weight:500;margin-top:2px">Need more information</div></div>
+          <sc-if value="{{ sigH.selected }}" hint-placeholder-val="{{ true }}"><svg width="22" height="22" viewBox="0 0 24 24" fill="#185FA5"><circle cx="12" cy="12" r="11"/><path d="M7 12.5l3.2 3.2L17 9" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></sc-if>
+        </div>
+
+        <div style="display:flex;gap:9px;margin-top:18px;padding:12px 14px;background:#fff;border:1px solid #e3efea;border-radius:13px">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="2" style="flex:none;margin-top:1px"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/></svg>
+          <div style="font-size:12px;line-height:1.5;color:#566b65">Kei te muna tō kōrero. Ka whakaputaina ngā hua <strong style="color:#36473f">i mua i te pōti a INZ</strong>.<br><span style="color:#8a9b95">Anonymous. Results are published before INZ casts its parliamentary vote.</span></div>
+        </div>
+      </div>
+      <sc-if value="{{ hasChosen }}" hint-placeholder-val="{{ true }}">
+      <div style="padding:12px 16px 14px;background:#fff;border-top:1px solid #e3efea">
+        <button onClick="{{ confirm }}" style="width:100%;background:{{ chosenColor }};color:#fff;border:none;border-radius:14px;padding:15px;font-family:inherit;font-size:15px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px">
+          Whakatōkia · Confirm “{{ chosenLabel }}”
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+      </sc-if>
+    </div>
+    </sc-if>
+
+    <!-- ===================== RESULTS ===================== -->
+    <sc-if value="{{ isResults }}" hint-placeholder-val="{{ true }}">
+    <div style="flex:1;display:flex;flex-direction:column;min-height:0">
+      <div style="background:#04342C;color:#fff;padding:48px 22px 16px">
+        <div style="font-size:22px;font-weight:800;letter-spacing:-.3px">Ngā hua</div>
+        <div style="font-size:13px;color:#bfe6d8;margin-top:2px;font-weight:600">Results · {{ billTitle }}</div>
+        <sc-if value="{{ showChosen }}" hint-placeholder-val="{{ true }}">
+          <div style="display:inline-flex;align-items:center;gap:7px;margin-top:12px;background:rgba(93,202,165,.16);border:1px solid rgba(93,202,165,.35);border-radius:20px;padding:6px 13px;font-size:12.5px;font-weight:700">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5DCAA5" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg>
+            Kua tukuna · You signalled “{{ chosenLabel }}”
+          </div>
+        </sc-if>
+      </div>
+      <div class="kmscroll" style="flex:1;overflow-y:auto;padding:18px 16px 18px;background:#f2f9f6">
+
+        <div style="background:#fff;border:1px solid #d9ebe4;border-radius:16px;padding:16px 16px 14px;margin-bottom:13px">
+          <div style="font-size:12px;font-weight:700;color:#04342C;letter-spacing:.3px;margin-bottom:14px">TE WEHENGA KŌRERO · SIGNAL SPLIT</div>
+          <sc-for list="{{ bars }}" as="r" hint-placeholder-count="3">
+            <div style="margin-bottom:13px">
+              <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:5px">
+                <span style="font-size:13.5px;font-weight:700;color:#36473f">{{ r.te }} <span style="font-weight:500;color:#8a9b95;font-size:12px">· {{ r.en }}</span></span>
+                <span style="font-size:14px;font-weight:800;color:{{ r.color }}">{{ r.label }}</span>
+              </div>
+              <div style="height:11px;background:#eef4f1;border-radius:7px;overflow:hidden">
+                <div style="height:100%;width:{{ r.w }};background:{{ r.color }};border-radius:7px;transition:width .9s cubic-bezier(.2,.8,.2,1)"></div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+
+        <div style="background:#fff;border:1px solid #d9ebe4;border-radius:16px;padding:16px 16px 14px;margin-bottom:13px">
+          <div style="font-size:12px;font-weight:700;color:#04342C;letter-spacing:.3px;margin-bottom:4px">KOUNGA WHAIWĀHI · ENGAGEMENT QUALITY</div>
+          <div style="font-size:11.5px;color:#8a9b95;margin-bottom:14px;line-height:1.4">Read-before-signalling, shown publicly. A signal from readers carries different weight to a tap.</div>
+          <sc-for list="{{ engage }}" as="e" hint-placeholder-count="2">
+            <div style="margin-bottom:12px">
+              <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:5px">
+                <span style="font-size:12.5px;font-weight:600;color:#36473f">{{ e.label }}</span>
+                <span style="font-size:13.5px;font-weight:800;color:{{ e.color }}">{{ e.num }}</span>
+              </div>
+              <div style="height:9px;background:#eef4f1;border-radius:6px;overflow:hidden">
+                <div style="height:100%;width:{{ e.w }};background:{{ e.color }};border-radius:6px;transition:width .9s cubic-bezier(.2,.8,.2,1)"></div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+
+        <div style="background:#fff;border:1px solid #d9ebe4;border-radius:16px;padding:16px;margin-bottom:13px">
+          <div style="font-size:12px;font-weight:700;color:#04342C;letter-spacing:.3px;margin-bottom:11px">PŌTI PĀREMATA · PARLIAMENTARY VOTE</div>
+          <div style="display:flex;align-items:center;justify-content:space-between;font-size:13.5px;color:#36473f;margin-bottom:9px">
+            <span style="color:#5b6f69">Rā pōti · Vote date</span><span style="font-weight:700">{{ voteDateLabel }}</span>
+          </div>
+          <div style="display:inline-flex;align-items:center;gap:7px;background:#E1F5EE;border-radius:8px;padding:7px 11px;font-size:12px;font-weight:700;color:#0a5641">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg>
+            Whakaputaina i mua i te pōti · Published before the vote
+          </div>
+        </div>
+
+        <sc-if value="{{ diverged }}" hint-placeholder-val="{{ true }}">
+          <div style="background:#FAEEDA;border:1px solid #e8d2a8;border-radius:16px;padding:16px;margin-bottom:13px">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#633806" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8v5M12 16.5v.5"/><path d="M12 3l9 16H3z"/></svg>
+              <span style="font-size:12px;font-weight:800;color:#633806;letter-spacing:.3px">INZ I RERE KĒ · INZ VOTED AGAINST THE SIGNAL</span>
+            </div>
+            <div style="font-size:12.5px;color:#6a4a14;line-height:1.45;margin-bottom:11px">When INZ votes differently from the Kōrero Mai signal, the MP must file a public explanation within 24 hours.</div>
+            <div style="background:#fff;border-radius:11px;padding:13px 14px">
+              <p style="font-size:13.5px;line-height:1.6;color:#36473f;margin:0 0 10px;font-style:italic">“{{ mp.text }}”</p>
+              <div style="font-size:11.5px;font-weight:700;color:#04342C">{{ mp.mp }}</div>
+              <div style="font-size:11px;color:#8a9b95;margin-top:1px">{{ mp.time }}</div>
+            </div>
+          </div>
+        </sc-if>
+
+        <div style="background:#085041;border-radius:16px;padding:17px 16px;color:#dff1ea">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5DCAA5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            <span style="font-size:12px;font-weight:800;color:#5DCAA5;letter-spacing:.3px">TE KAUNIHERA TĀNGATA · CITIZENS' SENATE</span>
+          </div>
+          <div style="font-size:13px;line-height:1.5;color:#bfe6d8;margin-bottom:13px">Kōrero Mai exists to help establish the Citizens' Senate, then close. Wāhanga tuarua o te ono · Phase 2 of 6.</div>
+          <div style="height:7px;background:rgba(255,255,255,.14);border-radius:8px;overflow:hidden;margin-bottom:14px">
+            <div style="height:100%;width:{{ sunsetW }};background:#5DCAA5;border-radius:8px"></div>
+          </div>
+          <sc-for list="{{ phases }}" as="ph" hint-placeholder-count="6">
+            <div style="display:flex;align-items:center;gap:10px;padding:4px 0">
+              <span style="width:9px;height:9px;border-radius:50%;background:{{ ph.dot }};flex:none"></span>
+              <span style="font-size:12.5px;color:{{ ph.tcol }};font-weight:{{ ph.tw }}">{{ ph.num }}. {{ ph.name }}</span>
+            </div>
+          </sc-for>
+          <div style="font-size:11.5px;color:#7fc4ac;margin-top:12px;line-height:1.5;border-top:1px solid rgba(255,255,255,.12);padding-top:11px">When the Senate is convened, this app closes and the full results archive becomes permanently public.</div>
+        </div>
+      </div>
+    </div>
+    </sc-if>
+
+    <!-- ===================== BOTTOM NAV ===================== -->
+    <sc-if value="{{ showNav }}" hint-placeholder-val="{{ true }}">
+    <div style="display:flex;background:#fff;border-top:1px solid #e3efea;padding:9px 8px 26px">
+      <button onClick="{{ goHome }}" style="flex:1;background:none;border:none;cursor:pointer;font-family:inherit;display:flex;flex-direction:column;align-items:center;gap:3px;color:{{ navHomeC }}">
+        <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M10 13h5M10 16.5h5"/></svg>
+        <span style="font-size:10px;font-weight:700">Bills</span>
+      </button>
+      <button onClick="{{ goBill }}" style="flex:1;background:none;border:none;cursor:pointer;font-family:inherit;display:flex;flex-direction:column;align-items:center;gap:3px;color:{{ navBillC }}">
+        <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h6v17H6a2 2 0 0 1-2-2zM20 5a2 2 0 0 0-2-2h-6v17h6a2 2 0 0 0 2-2z"/></svg>
+        <span style="font-size:10px;font-weight:700">Reading</span>
+      </button>
+      <button onClick="{{ goSignal }}" style="flex:1;background:none;border:none;cursor:pointer;font-family:inherit;display:flex;flex-direction:column;align-items:center;gap:3px;color:{{ navSignalC }}">
+        <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14a2 2 0 0 1-2 2H8l-4 4V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2z"/></svg>
+        <span style="font-size:10px;font-weight:700">Signal</span>
+      </button>
+      <button onClick="{{ goResults }}" style="flex:1;background:none;border:none;cursor:pointer;font-family:inherit;display:flex;flex-direction:column;align-items:center;gap:3px;color:{{ navResultsC }}">
+        <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20V11M12 20V4M19 20v-7"/></svg>
+        <span style="font-size:10px;font-weight:700">Results</span>
+      </button>
+    </div>
+    </sc-if>
+
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:384,&quot;height&quot;:812},&quot;initialScreen&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;verify&quot;,&quot;home&quot;,&quot;bill&quot;,&quot;signal&quot;,&quot;results&quot;],&quot;default&quot;:&quot;verify&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;initialBillId&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:1,&quot;min&quot;:1,&quot;max&quot;:4,&quot;tsType&quot;:&quot;number&quot;}}">
+class Component extends DCLogic {
+  state = {
+    screen: (this.props && this.props.initialScreen) || 'verify',
+    billId: Number(this.props && this.props.initialBillId) || 1,
+    billTab: 'summary',
+    readProgress: 0,
+    chosenSignal: null,
+    confirmed: false,
+    mounted: false,
+    verifyStep: 'intro',
+  };
+
+  startVerify() {
+    this.setState({ verifyStep: 'checking' });
+    setTimeout(() => this.setState({ verifyStep: 'done' }), 2200);
+  }
+  finishVerify() { this.setState({ screen: 'home' }); }
+
+  componentDidMount() {
+    requestAnimationFrame(() => this.setState({ mounted: true }));
+  }
+
+  bills() {
+    return [
+      {
+        id: 1, days: 3, readMin: 4, signals: 18204, voteDate: 'Thu 25 Jun', diverged: false, inzPos: 'Supported',
+        title: 'Residential Rent Stabilisation Bill',
+        desc: 'Caps annual rent increases at CPI inflation plus 3%, and limits any increase to once every 12 months for existing tenancies.',
+        summary: [
+          'The Bill changes how much landlords can raise rent each year. For any existing tenancy, rent could rise by no more than the annual rate of inflation plus three percent, and only once in any twelve-month period.',
+          'It applies to existing tenancies only. Rent for a property between tenancies — when a new tenant moves in — is not capped, so the Bill does not set a market-wide rent control.',
+          'Boarding houses, social housing already under separate rules, and newly built dwellings in their first fifteen years are exempt, to avoid discouraging new construction.',
+          'Enforcement sits with the Tenancy Tribunal. A landlord who charges above the cap must refund the difference, and repeated breaches carry a penalty of up to $6,500.',
+        ],
+        forText: [
+          'Supporters say renters face increases far above wage growth, and that a predictable cap lets households plan without forcing rents below the market over time.',
+          'The inflation-plus-three-percent formula still allows real-terms increases, so landlords are not locked into losses.',
+        ],
+        againstText: [
+          'Opponents argue any cap reduces the incentive to maintain or supply rental housing, and that exempting new builds does not fully offset reduced investment.',
+          'Some submitters prefer targeted income support for renters over price controls, which they say distort the market.',
+        ],
+        proposer: 'Te Pāti Whenua (governing coalition)', proposerPos: 'Supports',
+        results: { tautoko: 54, whakahe: 31, hiahia: 15, readFirst: 68 },
+        mp: null,
+      },
+      {
+        id: 2, days: 6, readMin: 6, signals: 9517, voteDate: 'Mon 29 Jun', diverged: true, inzPos: 'Supported',
+        title: 'Pae Tawhiti Coastal Managed Retreat Bill',
+        desc: 'Creates a national framework and fund to relocate homes and infrastructure away from coastlines facing severe erosion and sea-level rise.',
+        summary: [
+          "The Bill sets up a national process for 'managed retreat' — the planned, funded relocation of communities away from land that is becoming unsafe because of coastal erosion and rising seas.",
+          'It establishes a public fund to buy out affected property owners at a set proportion of market value, and gives councils a clear legal pathway to rezone at-risk land once retreat is agreed.',
+          'Participation is voluntary for individual owners at first, but the Bill allows compulsory acquisition where a whole community has agreed to move and a small number of holdouts would make relocation unworkable.',
+          'A standing fund of $1.2 billion over ten years backs the scheme, reviewed each Budget against the pace of coastal loss.',
+        ],
+        forText: [
+          'Supporters say the country already pays for coastal disasters after the fact, and that a planned framework is cheaper and fairer than repeated emergency bailouts.',
+          'Iwi and councils in affected regions have asked for a national rulebook rather than slow case-by-case decisions.',
+        ],
+        againstText: [
+          'Opponents object to the compulsory acquisition power and argue the buy-out values are set too low.',
+          'Others say the fund is too small for the scale of the problem and will raise expectations it cannot meet.',
+        ],
+        proposer: 'Integrity New Zealand', proposerPos: 'Supports',
+        results: { tautoko: 41, whakahe: 44, hiahia: 15, readFirst: 74 },
+        mp: {
+          mp: 'Hana Whitiora MP · Te Tai Tonga',
+          time: 'Filed 28 Jun 09:12 — within the 24-hour requirement',
+          text: 'The signal narrowly opposed this Bill, 44% to 41%. I voted to support it. The opposition was concentrated in three coastal electorates whose residents face relocation, which is understandable — but the framework protects those same communities from uncompensated loss, and the national interest in a planned, funded process outweighs a four-point margin. I have committed to raising the buy-out floor to 95% of market value at the committee stage.',
+        },
+      },
+      {
+        id: 3, days: 9, readMin: 5, signals: 7330, voteDate: 'Wed 1 Jul', diverged: false, inzPos: 'Supported',
+        title: 'Digital Identity Verification Bill',
+        desc: 'Establishes an opt-in national digital identity citizens can use to prove who they are online to government and accredited private services.',
+        summary: [
+          'The Bill creates a voluntary national digital ID. Citizens could verify their identity once and then prove it online without resubmitting documents each time.',
+          'Use is opt-in, and the Bill bars any agency from refusing a service to someone who chooses not to hold a digital ID.',
+          'A privacy-by-design framework governs exactly what data is shared, with whom, and for how long, overseen by an independent commissioner.',
+        ],
+        forText: ['Supporters point to faster access to services and a sharp reduction in identity fraud.'],
+        againstText: ['Opponents worry about surveillance and large-scale data breaches even under an opt-in design.'],
+        proposer: 'Integrity New Zealand', proposerPos: 'Supports',
+        results: { tautoko: 39, whakahe: 36, hiahia: 25, readFirst: 61 },
+        mp: null,
+      },
+      {
+        id: 4, days: 1, readMin: 2, signals: 21893, voteDate: 'Tomorrow', diverged: false, inzPos: 'Supported',
+        title: 'Emergency Drought Relief Appropriation Bill',
+        desc: 'Authorises $240 million in immediate relief for farming regions under official drought declaration — feed subsidies, water-carting grants, and rural mental-health support.',
+        summary: [
+          'This is an urgent appropriation Bill. It releases $240 million to regions under an official drought declaration, covering stock-feed subsidies, water-carting grants, and rural mental-health services.',
+          'Because it is urgent, the parliamentary vote is scheduled within 24 hours. The brief is shorter than usual and the reading gate is set accordingly.',
+        ],
+        forText: ['Supporters say affected farmers need cash now, before stock losses compound into permanent damage.'],
+        againstText: ['Some question whether the relief is targeted enough and want stricter eligibility tests.'],
+        proposer: 'Governing coalition', proposerPos: 'Supports',
+        results: { tautoko: 71, whakahe: 12, hiahia: 17, readFirst: 52 },
+        mp: null,
+      },
+    ];
+  }
+
+  current() { return this.bills().find(b => b.id === this.state.billId) || this.bills()[0]; }
+  go(screen) { this.setState({ screen }); }
+  openBill(id) { this.setState({ screen: 'bill', billId: id, billTab: 'summary', readProgress: 0, chosenSignal: null, confirmed: false }); }
+  onScroll(e) {
+    const el = e.currentTarget;
+    const max = el.scrollHeight - el.clientHeight;
+    const pct = max > 4 ? Math.min(100, Math.round((el.scrollTop / max) * 100)) : 100;
+    if (pct > this.state.readProgress) this.setState({ readProgress: pct });
+  }
+  choose(sig) { this.setState({ chosenSignal: sig, confirmed: false }); }
+  confirm() { this.setState({ confirmed: true, screen: 'results' }); }
+
+  renderVals() {
+    const S = this.state;
+    const b = this.current();
+    const unlocked = S.readProgress >= 92;
+    const m = S.mounted;
+
+    const bills = this.bills().map(bb => {
+      const urgent = bb.days <= 2;
+      return {
+        ...bb, open: () => this.openBill(bb.id), urgent,
+        dayLabel: bb.days === 1 ? '1 rā · vote tomorrow' : (bb.days + ' rā · ' + bb.days + ' days left'),
+        tagBg: urgent ? '#FAEEDA' : '#E1F5EE', tagFg: urgent ? '#633806' : '#085041',
+        readLabel: bb.readMin + ' min read',
+        signalsLabel: bb.signals.toLocaleString('en-NZ') + ' signals',
+        engageW: bb.results.readFirst + '%', engageLabel: bb.results.readFirst + '% read the brief first',
+      };
+    });
+
+    const tabs = [['summary', 'Whakarāpopoto', 'Summary'], ['for', 'Mō', 'For'], ['against', 'Whakahē', 'Against'], ['full', 'Pire katoa', 'Full']]
+      .map(t => {
+        const a = S.billTab === t[0];
+        return { key: t[0], te: t[1], en: t[2], setTab: () => this.setState({ billTab: t[0] }),
+          color: a ? '#085041' : '#7d918b', bb: a ? '2px solid #0F6E56' : '2px solid transparent', weight: a ? '700' : '500' };
+      });
+
+    const sigCfg = {
+      tautoko: { te: 'Tautoko', color: '#0F6E56', bg: '#E1F5EE', border: '2px solid #5DCAA5' },
+      whakahe: { te: 'Whakahē', color: '#A32D2D', bg: '#FCEBEB', border: '2px solid #E0AEAE' },
+      hiahia: { te: 'Hiahia mōhio anō', color: '#185FA5', bg: '#E6F1FB', border: '2px solid #AFD0EF' },
+    };
+    const sig = (k) => {
+      const c = sigCfg[k]; const sel = S.chosenSignal === k;
+      return { selected: sel, choose: () => this.choose(k), color: c.color,
+        cardBg: sel ? c.bg : '#ffffff', cardBorder: sel ? c.border : '2px solid #e3efea' };
+    };
+
+    const res = b.results;
+    const bars = [
+      { te: 'Tautoko', en: 'Support', pct: res.tautoko, color: '#0F6E56' },
+      { te: 'Whakahē', en: 'Oppose', pct: res.whakahe, color: '#A32D2D' },
+      { te: 'Hiahia mōhio anō', en: 'Need more info', pct: res.hiahia, color: '#185FA5' },
+    ].map(x => ({ ...x, w: (m ? x.pct : 0) + '%', label: x.pct + '%' }));
+    const engage = [
+      { label: 'Pānui i te kupu roa i mua · Read first', pct: res.readFirst, color: '#0F6E56' },
+      { label: 'I kōrero noa · Signalled without reading', pct: 100 - res.readFirst, color: '#9bb1aa' },
+    ].map(x => ({ ...x, w: (m ? x.pct : 0) + '%', num: x.pct + '%' }));
+
+    const chosenColors = { tautoko: '#0F6E56', whakahe: '#A32D2D', hiahia: '#185FA5' };
+    const chosenLabel = S.chosenSignal ? sigCfg[S.chosenSignal].te : '';
+
+    const phaseNames = ['Establishing legislation', 'Selection process design', 'Public information campaign', 'Member selection by sortition', 'Senate convened', 'Kōrero Mai closes'];
+    const phases = phaseNames.map((p, i) => ({
+      name: p, num: i + 1,
+      dot: i <= 1 ? '#5DCAA5' : 'rgba(255,255,255,.25)',
+      tcol: i <= 1 ? '#eafaf3' : '#7fc4ac', tw: i === 1 ? '700' : '500',
+    }));
+
+    return {
+      isVerify: S.screen === 'verify',
+      vIntro: S.verifyStep === 'intro', vChecking: S.verifyStep === 'checking', vDone: S.verifyStep === 'done',
+      startVerify: () => this.startVerify(), finishVerify: () => this.finishVerify(),
+      showNav: S.screen !== 'verify',
+      isHome: S.screen === 'home', isBill: S.screen === 'bill', isSignal: S.screen === 'signal', isResults: S.screen === 'results',
+      bills, billTitle: b.title, billRead: b.readMin + ' min read', billVote: 'Pōti ' + b.voteDate,
+      summary: b.summary, forText: b.forText, againstText: b.againstText, proposer: b.proposer, proposerPos: b.proposerPos,
+      tabs, isSummary: S.billTab === 'summary', isFor: S.billTab === 'for', isAgainst: S.billTab === 'against', isFull: S.billTab === 'full',
+      readW: S.readProgress + '%', unlocked, locked: !unlocked, onScroll: (e) => this.onScroll(e),
+      goHome: () => this.go('home'), goBill: () => this.setState({ screen: 'bill' }), goSignal: () => this.go('signal'), goResults: () => this.go('results'),
+      navHomeC: S.screen === 'home' ? '#0F6E56' : '#9aaca6',
+      navBillC: S.screen === 'bill' ? '#0F6E56' : '#9aaca6',
+      navSignalC: S.screen === 'signal' ? '#0F6E56' : '#9aaca6',
+      navResultsC: S.screen === 'results' ? '#0F6E56' : '#9aaca6',
+      sigT: sig('tautoko'), sigW: sig('whakahe'), sigH: sig('hiahia'),
+      hasChosen: !!S.chosenSignal, confirm: () => this.confirm(),
+      chosenLabel, chosenColor: S.chosenSignal ? chosenColors[S.chosenSignal] : '#0F6E56',
+      showChosen: S.confirmed && !!S.chosenSignal,
+      bars, engage, diverged: b.diverged, mp: b.mp || { text: '', mp: '', time: '' },
+      voteDateLabel: b.voteDate, phases, sunsetW: '28%',
+    };
+  }
+}
+</script>
+</body>
+</html>
